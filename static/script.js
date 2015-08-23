@@ -24,6 +24,8 @@
             var $this = $(this);
             if ($this.parents('.tests').length) {
                 setStatus($this, 'loading', '测试中');
+
+
                 $.get($this.attr('href'), function(res) {
                     if (res.status == 'error') {
                         setStatus($this, 'error', '测试失败');

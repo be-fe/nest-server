@@ -33,11 +33,11 @@ TestRunner.prototype = {
             test.url = self.server.serverUrl + test.url;
 
             request(test, function(err, res, body) {
-                var resObject = {};
+                var resObject = null;
                 try {
                     resObject = JSON.parse(body);
                 } catch (ex) {
-                    resObject = {};
+                    resObject = null;
                 }
 
                 var isFailed = false;

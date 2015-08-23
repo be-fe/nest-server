@@ -4,7 +4,9 @@
  *
  * module.exports 一个包含登陆人物的数组.
  *
- * @todo doc
+ * user.user    是user的标识
+ * user.name    是user的显示文本
+ * user.pass    登陆的密码
  *
  * @example
  *    [
