@@ -1,3 +1,6 @@
 .idea
 node_modules
 static/vendor
+servers
+tests
+users
