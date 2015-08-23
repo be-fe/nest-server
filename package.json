@@ -11,7 +11,9 @@
   "dependencies": {
     "connect": "^3.4.0",
     "gulp": "^3.9.0",
+    "nodemon": "^1.4.1",
     "request": "^2.61.0",
+    "st": "^0.5.5",
     "tough-cookie": "^2.0.0"
   }
 }

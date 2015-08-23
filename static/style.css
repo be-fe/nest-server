@@ -1,0 +1,33 @@
+body {
+    margin: 20px;
+}
+
+entry {
+    min-width: 240px;
+    display: inline-block;
+    margin: 5px 0;
+    font-size: 20px;
+}
+
+.login-section {
+    display: none;
+}
+
+i.success, i.loading, i.error {
+    font-style: normal;
+    right: 0;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+.success {
+    color: #18B423;
+}
+
+.loading {
+    color: #e5cb47;
+}
+
+.error {
+    color: #ff7c72;
+}
