@@ -35,10 +35,21 @@
                 });
             } else if ($this.is('.run-all-tests')) {
                 $tests.find('i').remove();
-                var interval = 1000;
-                $tests.each(function() {
-                    $(this).find('a').click();
-                });
+                var INTERVAL = 1000;
+                var $currTest = $tests.eq(0);
+
+                // @fixme: 这个方面只是简单粗暴的使用一个间隔来触发各个测试,
+                // 最好是能够序列化所有的测试.
+                var triggerNextTest = function(interval) {
+                    setTimeout(function () {
+                        $currTest.find('a').click();
+                        $currTest = $currTest.next();
+                        if ($currTest.length) {
+                            triggerNextTest();
+                        }
+                    }, typeof interval == 'number' ? interval : INTERVAL);
+                };
+                triggerNextTest(0);
             } else if ($this.parents('.users').length) {
                 var serverName = $('[name=server]:checked').val();
                 var url = $this.attr('href') + '&servername=' + serverName;
