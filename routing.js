@@ -96,7 +96,7 @@ module.exports = {
         var server = serverHash[query.servername];
         auth(server, query.username, function(j) {
             var JSESSIONID_KEY = 'JSESSIONID';
-            var JSESSIONID_REG = /(JSESSIONID=)([^'";]+)/g;
+            var JSESSIONID_REG = /(JSESSIONID=)([^'";]*)/g;
 
             if (server.birdConfigPath && fs.existsSync(server.birdConfigPath)) {
                 console.log('发现bird server配置, 替换JSESSIONID');
@@ -112,7 +112,7 @@ module.exports = {
                 });
 
                 content = content.replace(JSESSIONID_REG, '$1' + jsessionidValue);
-                //console.log(content); //@test
+                console.log('jsessionid=', jsessionidValue, 'content=', content); //@test
                 fs.writeFileSync(server.birdConfigPath, content);
                 res.end(JSON.stringify({status: 'success'}));
             }
