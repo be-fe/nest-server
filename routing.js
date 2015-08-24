@@ -85,7 +85,7 @@ module.exports = {
         res.setHeader('Content-Type', 'application/json');
         var match = rgxTestPath.exec(query.pathname);
         var testFile = match[1];
-
+        testFile = decodeURIComponent(testFile);
         var testFunc = require('.' + testFile);
         testFunc(res);
     },
